@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="application/javascript">
+
+// Case 3: Visul component
+
+class PageCaption extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+
+  connectedCallback() {
+    this.shadowRoot.innerHTML = `<h1>${this.getAttribute('name')}</h1>`;
+  }
+}
+
+window.customElements.define('page-caption', PageCaption);
+
+    </script>
+  </head>
+  <body>
+    <page-caption name="Marcus">Marcus Aurelius</page-caption>
+  </body>
+</html>
