@@ -9,10 +9,19 @@ class PageCaption extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this.clicked = false;
   }
 
   connectedCallback() {
-    this.shadowRoot.innerHTML = `<h1>${this.getAttribute('name')}</h1>`;
+    const html = `<h1>Marcus</h1><button type="button">Ave Marcus!</button>`;
+    this.shadowRoot.innerHTML = html;
+    this.shadowRoot.querySelector('button').addEventListener('click', () => {
+      if (!this.clicked) {
+        this.clicked = true;
+        const html = `<h1>Ave Marcus Aurelius!</h1>`;
+        this.shadowRoot.innerHTML = html;
+      }
+    });
   }
 }
 
@@ -21,6 +30,6 @@ window.customElements.define('page-caption', PageCaption);
     </script>
   </head>
   <body>
-    <page-caption name="Marcus">Marcus Aurelius</page-caption>
+    <page-caption></page-caption>
   </body>
 </html>
