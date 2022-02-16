@@ -5,6 +5,10 @@ class Point {
     this.x = x;
     this.y = y;
   }
+
+  toString() {
+    return `(${this.x}, ${this.y})`;
+  }
 }
 
 class Polygon {
@@ -20,6 +24,10 @@ class Polygon {
       d = p;
     }
     return Math.abs(value) / 2;
+  }
+
+  toString() {
+    return this.points.map((p) => p.toString()).join('; ');
   }
 }
 
@@ -73,3 +81,4 @@ console.log('Rotate 90');
 Geometry.rotate(triangle, 90);
 console.dir(triangle);
 console.dir(triangle.area);
+console.dir(`${triangle}`);
