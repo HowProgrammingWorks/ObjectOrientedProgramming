@@ -67,18 +67,18 @@ class Geometry {
 // Usage
 
 const rect = new Rect(10, 10, 30, -10);
-console.dir(rect);
-console.dir(rect.area);
+console.log(rect);
+console.log(rect.area);
 
 console.log('Rotate 45');
 Geometry.rotate(rect, 45);
-console.dir(rect);
-console.dir(rect.area);
+console.log(rect);
+console.log(rect.area);
 
 const triangle = new Triangle(0, 0, 15, 0, 0, 15);
-console.dir(triangle);
+console.log(triangle);
 console.log('Rotate 90');
 Geometry.rotate(triangle, 90);
-console.dir(triangle);
-console.dir(triangle.area);
-console.dir(`${triangle}`);
+console.log(triangle);
+console.log(triangle.area);
+console.log(`${triangle}`);
