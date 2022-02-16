@@ -13,7 +13,13 @@ class Polygon {
   }
 
   get area() {
-    // implement area calculation
+    let value = 0;
+    let d = this.points[this.points.length - 1];
+    for (const p of this.points) {
+      value += p.x * d.y - d.x * p.y;
+      d = p;
+    }
+    return Math.abs(value) / 2;
   }
 }
 
@@ -54,12 +60,16 @@ class Geometry {
 
 const rect = new Rect(10, 10, 30, -10);
 console.dir(rect);
+console.dir(rect.area);
+
 console.log('Rotate 45');
 Geometry.rotate(rect, 45);
 console.dir(rect);
+console.dir(rect.area);
 
 const triangle = new Triangle(0, 0, 15, 0, 0, 15);
 console.dir(triangle);
 console.log('Rotate 90');
 Geometry.rotate(triangle, 90);
 console.dir(triangle);
+console.dir(triangle.area);
