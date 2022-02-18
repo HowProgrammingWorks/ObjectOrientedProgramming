@@ -50,7 +50,7 @@ class Triangle extends Polygon {
   }
 }
 
-class Geometry {
+class Planimetrics {
   static rotate(polygon, angle) {
     const { points } = polygon;
     const radians = Math.PI / 180 * angle;
@@ -71,14 +71,14 @@ console.log(rect);
 console.log(rect.area);
 
 console.log('Rotate 45');
-Geometry.rotate(rect, 45);
+Planimetrics.rotate(rect, 45);
 console.log(rect);
 console.log(rect.area);
 
 const triangle = new Triangle(0, 0, 15, 0, 0, 15);
 console.log(triangle);
 console.log('Rotate 90');
-Geometry.rotate(triangle, 90);
+Planimetrics.rotate(triangle, 90);
 console.log(triangle);
 console.log(triangle.area);
 console.log(`${triangle}`);
