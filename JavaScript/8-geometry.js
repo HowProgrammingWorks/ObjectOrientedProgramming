@@ -16,16 +16,6 @@ class Polygon {
     this.points = points;
   }
 
-  get area() {
-    let value = 0;
-    let d = this.points[this.points.length - 1];
-    for (const p of this.points) {
-      value += p.x * d.y - d.x * p.y;
-      d = p;
-    }
-    return Math.abs(value) / 2;
-  }
-
   toString() {
     return this.points.map((p) => p.toString()).join('; ');
   }
@@ -62,23 +52,34 @@ class Geometry {
       point.y = x * sin + y * cos;
     }
   }
+
+  static area(polygon) {
+    const { points } = polygon
+    let value = 0;
+    let d = points[points.length - 1];
+    for (const p of points) {
+      value += p.x * d.y - d.x * p.y;
+      d = p;
+    }
+    return Math.abs(value) / 2;
+  }
 }
 
 // Usage
 
 const rect = new Rect(10, 10, 30, -10);
 console.log(rect);
-console.log(rect.area);
+console.log(Geometry.area(rect));
 
 console.log('Rotate 45');
 Geometry.rotate(rect, 45);
 console.log(rect);
-console.log(rect.area);
+console.log(Geometry.area(rect));
 
 const triangle = new Triangle(0, 0, 15, 0, 0, 15);
 console.log(triangle);
 console.log('Rotate 90');
 Geometry.rotate(triangle, 90);
 console.log(triangle);
-console.log(triangle.area);
+console.log(Geometry.area(triangle));
 console.log(`${triangle}`);
