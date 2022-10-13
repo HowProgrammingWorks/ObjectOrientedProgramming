@@ -1,6 +1,6 @@
 'use strict';
 
-const { EventEmitter } = require('events');
+const { EventEmitter } = require('node:events');
 
 // Case 2: Active entity
 // for example: Collection, Stream, Scheduler
