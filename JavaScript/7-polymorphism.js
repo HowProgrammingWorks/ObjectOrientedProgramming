@@ -2,26 +2,28 @@
 
 class Cache {
   constructor() {
-    const proto = Object.getPrototypeOf(this);
-    if (proto.constructor === Cache) {
+    if (this.constructor === Cache) {
       throw new Error('Abstract class should not be instanciated');
     }
     this.allocated = 0;
   }
 
   read(key) {
-    const s = JSON.stringify({ read: { key } });
-    throw new Error('Method is not implemented: ' + s);
+    const data = JSON.stringify({ read: { key } });
+    const method = `${this.constructor.name}.read(${data})`;
+    throw new Error(`Method ${method} is not implemented`);
   }
 
   add(key, val) {
-    const s = JSON.stringify({ add: { key, val } });
-    throw new Error('Method is not implemented: ' + s);
+    const data = JSON.stringify({ add: { key, val } });
+    const method = `${this.constructor.name}.add(${data})`;
+    throw new Error(`Method ${method} is not implemented`);
   }
 
   delete(key) {
-    const s = JSON.stringify({ delete: { key } });
-    throw new Error('Method is not implemented: ' + s);
+    const data = JSON.stringify({ delete: { key } });
+    const method = `${this.constructor.name}.add(${data})`;
+    throw new Error(`Method ${method} is not implemented`);
   }
 }
 

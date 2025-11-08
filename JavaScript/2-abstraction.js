@@ -26,7 +26,7 @@ class Collection extends EventEmitter {
 
   get(key) {
     const index = this.keys.indexOf(key);
-    if (index === -1) return;
+    if (index === -1) return null;
     return this.values[index];
   }
 }

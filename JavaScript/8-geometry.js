@@ -53,7 +53,7 @@ class Triangle extends Polygon {
 class Geometry {
   static rotate(polygon, angle) {
     const { points } = polygon;
-    const radians = Math.PI / 180 * angle;
+    const radians = (Math.PI / 180) * angle;
     const sin = Math.sin(radians);
     const cos = Math.cos(radians);
     for (const point of points) {
