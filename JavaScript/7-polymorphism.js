@@ -3,7 +3,7 @@
 class Cache {
   constructor() {
     if (this.constructor === Cache) {
-      throw new Error('Abstract class should not be instanciated');
+      throw new Error('Abstract class should not be instantiated');
     }
     this.allocated = 0;
   }
@@ -22,7 +22,7 @@ class Cache {
 
   delete(key) {
     const data = JSON.stringify({ delete: { key } });
-    const method = `${this.constructor.name}.add(${data})`;
+    const method = `${this.constructor.name}.delete(${data})`;
     throw new Error(`Method ${method} is not implemented`);
   }
 }
